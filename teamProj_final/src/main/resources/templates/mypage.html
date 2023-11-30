@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/mypage.css">
+        <title>Memori</title>
+    </head>
+    <body>
+    <nav th:replace="~{main_up :: main_upFragment}"></nav>
+    <div class="center">
+        <div class="floor2">
+            <div class="guide">계정 보안</div>
+            <div class="guide">나의 찜 목록</div>
+            <div class="guide">메인 화면</div>
+        </div>
+
+        <div class="floor1">
+            <button class="pwchange" onclick="location.href='/user/pwchange'">비밀번호 변경</button>
+            <button class="likes" onclick="location.href='/cart'">확인하기</button>
+            <button class="home" onclick="location.href='/'">돌아가기</button>
+        </div>
+    </div>
+    </body>
+</html>

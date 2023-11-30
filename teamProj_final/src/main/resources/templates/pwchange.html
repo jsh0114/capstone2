@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memori</title>
+    <link href="/index01.css" rel="stylesheet">
+    <link href="/cart01.css" rel="stylesheet">
+    <script src="/cart01.js"></script>
+    <link rel="stylesheet" href="http://localhost:8080/pwchange.css">
+
+</head>
+<body>
+<nav th:replace="~{main_up :: main_upFragment}"></nav>
+<br><br>
+<div>
+    <b class="name1">현재 사용중인 비밀번호를 입력하세요.</b>
+    <input class="text" type="password" name="currentPassword" id="currentPassword" placeholder="  비밀번호">
+</div>
+<div>
+    <b class="name2">변경할 비밀번호를 입력하세요.</b>
+    <input class="text" type="password" name="newPassword" id="newPassword" placeholder="  비밀번호 변경">
+</div>
+<div>
+    <b class="name2">변경할 비밀번호를 재입력해주세요.</b>
+    <input class="text" type="password" name="confirmPassword" id="confirmPassword" placeholder="  비밀번호 변경 확인">
+</div>
+<br><br>
+<div>
+    <button class="pwchange" onclick="changePassword()" type="button">비밀번호 변경</button>
+    <div>
+        <button class="home" onclick="location.href='/mypage'">BACK</button>
+    </div>
+    <script type="text/javascript">
+        function changePassword() {
+            var username = "[[${username}]]";  // Replace with the actual username
+            var currentPassword = document.getElementById('currentPassword').value;
+            var newPassword = document.getElementById('newPassword').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (currentPassword.length < 6) {
+                alert('비밀번호는 6자 이상이어야 합니다.');
+                return false;
+            }
+
+            if (newPassword !== confirmPassword) {
+                alert('변경한 비밀번호가 일치하지 않습니다.');
+                return false;
+            }
+
+            var form = document.createElement("form");
+            form.setAttribute("method", "post");
+            form.setAttribute("action", "/user/pwchange");
+            form.style.display = "none";
+
+            var usernameField = document.createElement("input");
+            usernameField.setAttribute("type", "hidden");
+            usernameField.setAttribute("name", "username");
+            usernameField.setAttribute("value", username);
+
+            var currentPasswordField = document.createElement("input");
+            currentPasswordField.setAttribute("type", "hidden");
+            currentPasswordField.setAttribute("name", "currentPassword");
+            currentPasswordField.setAttribute("value", currentPassword);
+
+            var newPasswordField = document.createElement("input");
+            newPasswordField.setAttribute("type", "hidden");
+            newPasswordField.setAttribute("name", "newPassword");
+            newPasswordField.setAttribute("value", newPassword);
+
+            var confirmPasswordField = document.createElement("input");
+            confirmPasswordField.setAttribute("type", "hidden");
+            confirmPasswordField.setAttribute("name", "confirmPassword");
+            confirmPasswordField.setAttribute("value", confirmPassword);
+
+            form.appendChild(usernameField);
+            form.appendChild(currentPasswordField);
+            form.appendChild(newPasswordField);
+            form.appendChild(confirmPasswordField);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+</div>
+</body>
+</html>

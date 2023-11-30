@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Memori</title>
+    <!-- ... 기존의 CSS 및 JavaScript 라이브러리 추가 ... -->
+    <link rel="stylesheet" href="/list.css">
+</head>
+<body>
+
+<nav th:replace="~{main_up :: main_upFragment}"></nav>
+<nav th:replace="~{main_nav :: main_navFragment}"></nav>
+
+<div class="container">
+    <div id="filter-body" class="filter-container">
+        <div class="filter-group">
+            <h4>제조사</h4>
+            <div class="filter-options" id="maker-options">
+                <button class="brand-option" value="darkFlash" onclick="filterProducts(this.value)">darkFlash</button>
+                <button class="brand-option" value="앱코" onclick="filterProducts(this.value)">앱코</button>
+                <button class="brand-option" value="마이크로닉스" onclick="filterProducts(this.value)">마이크로닉스</button>
+                <button class="brand-option" value="아이구주" onclick="filterProducts(this.value)">아이구주</button>
+                <button class="brand-option" value="리안리" onclick="filterProducts(this.value)">리안리</button>
+                <button class="brand-option" value="잘만" onclick="filterProducts(this.value)">잘만</button>
+                <button class="brand-option" value="COX" onclick="filterProducts(this.value)">COX</button>
+                <button class="brand-option" value="BRAVOTEC" onclick="filterProducts(this.value)">BRAVOTEC</button>
+                <button class="brand-option" value="DAVEN" onclick="filterProducts(this.value)">DAVEN</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="sortBtn">
+        <button onclick="sortTableByPrice('asc')">낮은 가격순</button>
+        <button onclick="sortTableByPrice('desc')">높은 가격순</button>
+    </div>
+    <h1>케이스</h1>
+
+
+    <nav th:replace="~{products_list :: products_list}"></nav>
+
+</div>
+</body>
+</html>

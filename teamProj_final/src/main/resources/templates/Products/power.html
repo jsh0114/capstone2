@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Memori</title>
+    <!-- ... 기존의 CSS 및 JavaScript 라이브러리 추가 ... -->
+    <link rel="stylesheet" href="/list.css">
+</head>
+<body>
+
+<nav th:replace="~{main_up :: main_upFragment}"></nav>
+<nav th:replace="~{main_nav :: main_navFragment}"></nav>
+
+<div class="container">
+    <div id="filter-body" class="filter-container">
+        <div class="filter-group">
+            <h4>제조사</h4>
+            <div class="filter-options" id="maker-options">
+                <button class="brand-option" value="마이크로닉스" onclick="filterProducts(this.value)">마이크로닉스</button>
+                <button class="brand-option" value="시소닉" onclick="filterProducts(this.value)">시소닉</button>
+                <button class="brand-option" value="맥스엘리트" onclick="filterProducts(this.value)">맥스엘리트</button>
+                <button class="brand-option" value="CORSAIR" onclick="filterProducts(this.value)">CORSAIR</button>
+                <button class="brand-option" value="앱코" onclick="filterProducts(this.value)">앱코</button>
+                <button class="brand-option" value="MSI" onclick="filterProducts(this.value)">MSI</button>
+                <button class="brand-option" value="SuperFlower" onclick="filterProducts(this.value)">SuperFlower</button>
+
+            </div>
+        </div>
+        <div class="filter-group">
+            <h4>정격 출력</h4>
+            <div class="filter-options" id="print-options">
+                <button class="brand-option" value="600W" onclick="filterProducts(this.value)">600W</button>
+                <button class="brand-option" value="650W" onclick="filterProducts(this.value)">650W</button>
+                <button class="brand-option" value="700W" onclick="filterProducts(this.value)">700W</button>
+                <button class="brand-option" value="750W" onclick="filterProducts(this.value)">750W</button>
+                <button class="brand-option" value="800W" onclick="filterProducts(this.value)">800W</button>
+                <button class="brand-option" value="850W" onclick="filterProducts(this.value)">850W</button>
+                <button class="brand-option" value="900W" onclick="filterProducts(this.value)">900W</button>
+                <button class="brand-option" value="1000W" onclick="filterProducts(this.value)">1000W</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="sortBtn">
+        <button onclick="sortTableByPrice('asc')">낮은 가격순</button>
+        <button onclick="sortTableByPrice('desc')">높은 가격순</button>
+    </div>
+    <h1>파워</h1>
+    <nav th:replace="~{products_list :: products_list}"></nav>
+
+</div>
+</body>
+</html>

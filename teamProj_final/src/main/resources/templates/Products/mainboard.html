@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Memori</title>
+    <!-- ... 기존의 CSS 및 JavaScript 라이브러리 추가 ... -->
+    <link rel="stylesheet" href="/list.css">
+</head>
+<body>
+
+<nav th:replace="~{main_up :: main_upFragment}"></nav>
+<nav th:replace="~{main_nav :: main_navFragment}"></nav>
+
+<div class="container">
+    <div id="filter-body" class="filter-container">
+        <div class="filter-group">
+            <h4>제조사</h4>
+            <div class="filter-options" id="maker-options">
+                <button class="brand-option" value="ASUS" onclick="filterProducts(this.value)">ASUS</button>
+                <button class="brand-option" value="MSI" onclick="filterProducts(this.value)">MSI</button>
+                <button class="brand-option" value="GIGABYTE" onclick="filterProducts(this.value)">GIGABYTE</button>
+                <button class="brand-option" value="ASRock" onclick="filterProducts(this.value)">ASRock</button>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <h4>용량</h4>
+            <div class="filter-options" id="disk-options">
+                <button class="brand-option" value="Z790" onclick="filterProducts(this.value)">Z790</button>
+                <button class="brand-option" value="Z690" onclick="filterProducts(this.value)">Z690</button>
+                <button class="brand-option" value="B660" onclick="filterProducts(this.value)">B660</button>
+                <button class="brand-option" value="H610" onclick="filterProducts(this.value)">H610</button>
+                <button class="brand-option" value="B550" onclick="filterProducts(this.value)">B550</button>
+                <button class="brand-option" value="Z590" onclick="filterProducts(this.value)">Z590</button>
+                <button class="brand-option" value="B450" onclick="filterProducts(this.value)">B450</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="sortBtn">
+        <button onclick="sortTableByPrice('asc')">낮은 가격순</button>
+        <button onclick="sortTableByPrice('desc')">높은 가격순</button>
+    </div>
+    <h1>메인보드</h1>
+    <nav th:replace="~{products_list :: products_list}"></nav>
+
+</div>
+</body>
+</html>

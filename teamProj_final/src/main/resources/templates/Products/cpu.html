@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Memori</title>
+    <!-- ... 기존의 CSS 및 JavaScript 라이브러리 추가 ... -->
+    <link rel="stylesheet" href="/list.css">
+
+</head>
+
+<body>
+
+<nav th:replace="~{main_up :: main_upFragment}"></nav>
+<nav th:replace="~{main_nav :: main_navFragment}"></nav>
+
+<div class="container">
+    <div id="filter-body" class="filter-container">
+        <div class="filter-group">
+            <h4>Intel</h4>
+            <div class="filter-options" id="intel-options">
+                <button class="brand-option" value="인텔 코어 i9" onclick="filterProducts(this.value)">인텔 i9</button>
+                <button class="brand-option" value="인텔 코어 i7" onclick="filterProducts(this.value)">인텔 i7</button>
+                <button class="brand-option" value="인텔 코어 i5" onclick="filterProducts(this.value)">인텔 i5</button>
+                <button class="brand-option" value="인텔 코어 i3" onclick="filterProducts(this.value)">인텔 i3</button>
+            </div>
+        </div>
+        <div class="filter-group">
+            <h4>AMD</h4>
+            <div class="filter-options" id="amd-options">
+                <button class="brand-option" value="라이젠 9" onclick="filterProducts(this.value)">라이젠9</button>
+                <button class="brand-option" value="라이젠 7" onclick="filterProducts(this.value)">라이젠7</button>
+                <button class="brand-option" value="라이젠 5" onclick="filterProducts(this.value)">라이젠5</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="sortBtn">
+        <button onclick="sortTableByPrice('asc')">낮은 가격순</button>
+        <button onclick="sortTableByPrice('desc')">높은 가격순</button>
+    </div>
+    <h1>CPU</h1>
+    <nav th:replace="~{products_list :: products_list}"></nav>
+
+</div>
+</body>
+</html>

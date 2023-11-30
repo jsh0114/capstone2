@@ -1,0 +1,49 @@
+<nav th:fragment="main_upFragment">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memori</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="index01.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="blog-header lh-1 py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 pt-1">
+                    <a class="link-secondary" href="#"></a>
+                </div>
+                <div class="col-4 text-center">
+                    <a class="blog-header-logo text-dark" href="/">Memori</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="btn btn-sm mx-1 btn-outline-secondary" sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>
+                    <a class="btn btn-sm mx-1 btn-outline-secondary" sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>
+                    <a class="btn btn-sm mx-1 btn-outline-secondary" th:href="@{/user/signup}">회원가입</a>
+                </div>
+            </div>
+        </header>
+        <div class="nav-scroller">
+            <nav class="nav d-flex justify-content-between">
+                <a class="p-2 m-1 link-secondary" href="/cart">관심목록</a>
+                <a class="p-2 m-1 link-secondary" href="/center">고객센터</a>
+                <a class="p-2 m-1 link-secondary" href="/question/list">게시판</a>
+                <a class="p-2 m-1 link-secondary" href="/mypage">마이페이지</a>
+            </nav>
+        </div>
+        <hr class="my-1">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+</nav>

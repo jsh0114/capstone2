@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Memori</title>
+    <!-- ... 기존의 CSS 및 JavaScript 라이브러리 추가 ... -->
+    <link rel="stylesheet" href="/list.css">
+</head>
+<body>
+
+<nav th:replace="~{main_up :: main_upFragment}"></nav>
+<nav th:replace="~{main_nav :: main_navFragment}"></nav>
+
+<div class="container">
+    <div id="filter-body" class="filter-container">
+        <div class="filter-group">
+            <h4>제조사</h4>
+            <div class="filter-options" id="maker-options">
+                <button class="brand-option" value="삼성전자" onclick="filterProducts(this.value)">삼성전자</button>
+                <button class="brand-option" value="WD" onclick="filterProducts(this.value)">WD</button>
+                <button class="brand-option" value="마이크론" onclick="filterProducts(this.value)">마이크론</button>
+                <button class="brand-option" value="씨게이트" onclick="filterProducts(this.value)">씨게이트</button>
+                <button class="brand-option" value="샌디스크" onclick="filterProducts(this.value)">샌디스크</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="sortBtn">
+        <button onclick="sortTableByPrice('asc')">낮은 가격순</button>
+        <button onclick="sortTableByPrice('desc')">높은 가격순</button>
+    </div>
+    <h1>SSD</h1>
+    <nav th:replace="~{products_list :: products_list}"></nav>
+
+</div>
+</body>
+</html>

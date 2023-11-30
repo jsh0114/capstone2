@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memori</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/index01.css" rel="stylesheet">
+    <link href="/cart01.css" rel="stylesheet">
+    <script src="/cart01.js"></script>
+</head>
+
+<body>
+
+<nav th:replace="~{main_up :: main_upFragment}"></nav>
+<nav th:replace="~{main_nav :: main_navFragment}"></nav>
+
+<section class="cart">
+    <div class="cart__information">
+        <ul>
+            <li>이곳은 관심 목록입니다.</li>
+            <li>관심있는 부품들을 한눈에 확인하실 수 있습니다.</li>
+            <li>더 이상 관심없는 목록은 <span style="color: #DC143C;">삭제</span> 버튼을 통해 제거하실 수 있습니다.</li>
+        </ul>
+    </div>
+    <table class="cart__list">
+        <form>
+            <thead>
+            <tr>
+                <td></td>
+                <td colspan="2">상품명</td>
+                <td>상품정보</td>
+                <td>가격</td>
+                <td>구매</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id='fruits' class="cart__list__detail" th:each="productRequest : ${productRequest}">
+                <td style="width: 5%;">
+                    <button class="cart__list__optionbtn1" th:data-product-request-id="${productRequest.productId}">삭제</button>
+                </td>
+                <td style="width: 13%;">
+                    <img th:src="@{${productRequest.image}}" th:alt="${productRequest.title}">
+                </td>
+                <td style="width: 27%;">
+                    <span th:text="${#strings.replace((#strings.replace(productRequest.title, '</b>', '')), '<b>', '')}"></span>
+                </td>
+                <td style="width: 24%;">
+                    <!-- category2 > category3 > category4 -->
+                    <span th:if="${productRequest.category4 != null and productRequest.category4 != ''}"
+                          th:text="${productRequest.category2} + ' > ' + ${productRequest.category3} + ' > ' + ${productRequest.category4}">
+    </span>
+                    <!-- category2 > category3 -->
+                    <span th:if="${productRequest.category4 == null or productRequest.category4 == '' and productRequest.category3 != null and productRequest.category3 != ''}"
+                          th:text="${productRequest.category2} + ' > ' + ${productRequest.category3}">
+    </span>
+                    <!-- category2 -->
+                    <span th:if="${productRequest.category3 == null or productRequest.category3 == ''}"
+                          th:text="${productRequest.category2}">
+    </span>
+                </td>
+                <td style="width: 15%;">
+                    <span class="price" th:text="${#numbers.formatInteger(productRequest.lprice, 0, 'COMMA')} + '원'"></span>
+                    <br>
+                </td>
+                <td style="width: 15%;">
+                    <button class="cart__list__orderbtn">
+                        <a class="link_btn" th:href="@{${productRequest.link}}" target="_blank" rel="noopener noreferrer">
+                            이동하기
+                        </a>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </form>
+    </table>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+<script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
+<script>
+    document.querySelectorAll('.cart__list__optionbtn1').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var productRequestId = this.getAttribute('data-product-request-id');
+
+            fetch('/api/productRequests/' + productRequestId, {
+                method: 'DELETE'
+            }).then(function(response) {
+                if (response.ok) {
+                    // If the product request was successfully deleted, remove the table row.
+                    var row = document.getElementById('fruits');
+                    row.parentNode.removeChild(row);
+                }
+            });
+        });
+    });
+</script>
+</body>
+
+</html>

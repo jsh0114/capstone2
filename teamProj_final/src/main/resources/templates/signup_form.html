@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Memori</title>
+        <link rel="stylesheet" href="/signup.css">
+    </head>
+
+	<nav th:replace="~{main_up :: main_upFragment}"></nav>
+
+	<form class="undersite" th:action="@{/user/signup}" th:object="${userCreateForm}" method="post">
+		<div th:replace="~{form_errors :: formErrorsFragment}"></div>
+
+		<br>
+
+		<div class="mb-3">
+			<label for="username" class="form-label">사용하실 ID를 입력하세요.</label><br>
+			<input type="text" placeholder="아이디" th:field="*{username}" class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="password1" class="form-label">사용하실 비밀번호를 입력하세요.</label><br>
+			<input type="password" placeholder="패스워드" th:field="*{password1}" class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="password2" class="form-label">사용하실 비밀번호를 다시 입력하세요.</label><br>
+			<input type="password" placeholder="패스워드 확인" th:field="*{password2}" class="form-control">
+		</div>
+		<div class="mb-3">
+			<label for="email" class="form-label">이메일을 입력해주세요.</label><br>
+			<input type="email" placeholder="E-mail" th:field="*{email}" class="form-control"><br><br>
+		</div>
+		<div>
+			<button type="submit" class="sign_up">완료</button>
+		</div><br><br>
+	 </form>
+</html>

@@ -1,0 +1,54 @@
+<nav th:fragment="main_navFragment">
+<html lang="en">
+<body>
+    <div class="container">
+        <div class="nav-scroller mt-2">
+            <nav class="nav d-flex justify-content-between">
+                <a class="p-2 m-1 btn btn-outline-secondary btn-sm" style="width: 4.7rem;" href="/cpu" value="cpu" onclick="deleteAllProducts();handleClick(this);">CPU</a>
+                <a class="p-2 m-1 btn btn-outline-secondary btn-sm" style="width: 4.7rem;" href="/gpu" value="gpu" onclick="deleteAllProducts();handleClick(this);">GPU</a>
+                <a class="p-2 m-1 btn btn-outline-secondary btn-sm" style="width: 4.7rem;" href="/ssd" value="ssd" onclick="deleteAllProducts();handleClick(this);">SSD</a>
+                <a class="p-2 m-1 btn btn-outline-secondary btn-sm" style="width: 4.7rem;" href="/hdd" value="hdd" onclick="deleteAllProducts();handleClick(this);">HDD</a>
+                <a class="p-2 m-1 btn btn-outline-secondary btn-sm" style="width: 4.7rem;" href="/ram" value="ram" onclick="deleteAllProducts();handleClick(this);">RAM</a>
+                <a class="p-2 m-1 btn btn-outline-secondary btn-sm" style="width: 4.7rem;" href="/computercase" value="computercase" onclick="deleteAllProducts();handleClick(this);">케이스</a>
+                <a class="p-2 m-1 btn btn-outline-secondary btn-sm" style="width: 4.7rem;" href="/mainboard" value="mainboard" onclick="deleteAllProducts();handleClick(this);">메인보드</a>
+                <a class="p-2 m-1 btn btn-outline-secondary btn-sm" style="width: 4.7rem;" href="/power" value="power" onclick="deleteAllProducts();handleClick(this);">파워</a>
+                <a class="p-2 m-1 btn btn-outline-secondary btn-sm" style="width: 4.7rem;" href="/cooler" value="cooler" onclick="deleteAllProducts();handleClick(this);">쿨러</a>
+                <a class="p-2 m-1 btn btn-outline-secondary btn-sm" style="width: 4.7rem;" href="/monitor" value="monitor" onclick="deleteAllProducts();handleClick(this);">모니터</a>
+            </nav>
+        </div>
+    </div>
+    <br/>
+</body>
+<script th:inline="javascript">
+    function handleClick(button) {
+        const value = button.getAttribute("value");
+        fetch(`/api/search?query=${value}&limit=100`)
+            .then(response => response.json())
+            .then(data => {
+                // 여기서 서버의 응답을 처리합니다.
+                console.log(data);
+                // 페이지 리다이렉트는 서버의 응답을 처리한 후에 실행해야 합니다.
+                window.location.href = `/${value}`;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+    function deleteAllProducts() {
+        fetch('/deleteAll', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+    }
+</script>
+</html>
+</nav>

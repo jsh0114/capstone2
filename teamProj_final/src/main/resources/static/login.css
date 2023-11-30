@@ -1,0 +1,186 @@
+/*폰트 적용*/
+@font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 100;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 220px; /* 원하는 간격 크기로 수정해주세요 */
+}
+
+.login {
+    width: 360px;
+    position: absolute;
+    text-align: center;
+}
+
+.int-area {
+    position: relative
+}
+
+.int-area input{
+    width: 80%;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #999;
+    font-size: 18px;
+    color: #000;
+    outline: none;
+}
+.int-area label{
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    font-size: 18px;
+    color: #999;
+}
+.int-area input:focus + label, .int-area input:valid + label {
+    top:0;
+    font-size: 13px;
+    color: #166cae;
+}
+
+.btn-area {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.btn-area button {
+    width: 80%;
+    height: 50px;
+    background-color: #212529;
+    font-weight: 600;
+    color: white;
+    transition: 0.25s;
+    font-size: 20px;
+    border:none;
+    position: relative;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.btn-area button:hover {
+    background-color: #bebebe;
+    color: black;
+}
+
+.login .login-footer p {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.login .login-footer button {
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #212529;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    transition: 0.25s;
+    width: 40%;
+    height: 40px;
+}
+
+.login .login-footer button:hover {
+    background-color: #bebebe;
+    color: black;
+}
+
+.blog-header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.blog-header-logo {
+    font-family: "Playfair Display", serif /*rtl:Amiri, Georgia, "Times New Roman", serif;;;; */;
+    font-size: 2.25rem;
+    text-decoration: none;
+}
+
+.blog-header-logo:hover {
+    text-decoration: underline;
+}
+
+/*
+
+section {
+    height: calc(100vh - 60px);
+    position: relative;
+}
+
+.btn {
+    border: 1px solid lightgray;
+    display: block;
+    text-align: center;
+    padding: 15px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color:#222;
+    opacity: 0.8;
+}
+
+ (마우스 올리면 효과 뜨기)
+.btn:hover{
+    opacity: 1;
+}
+
+.btn:nth-of-type(1) {
+    background-color: #fff;
+    color: #000;
+    background-repeat: no-repeat;
+    background-position: center left 10px;
+}
+
+.btn:nth-of-type(2) {
+    background-color: #2DB400;
+    background-repeat: no-repeat;
+    background-position: center left 10px;
+}
+
+.btn:nth-of-type(3) {
+    background-color: #F7E600;
+    background-repeat: no-repeat;
+    background-position: center left 10px;
+}
+
+.or-text {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.or-text::before,.or-text::after {
+    content: '';
+    background-color: #999;
+    height: 1px;
+    width: 44%;
+    position: absolute;
+    top: 9px;
+}
+
+.or-text::before {
+    left:0;
+}
+
+.or-text::after {
+    right: 0;
+}
+
+.login-footer p {
+    text-align: center;
+}
+
+.login-footer p a {
+    font-weight: bolder;
+}
+
+.login-footer p a:hover {
+    text-decoration: underline;
+}
+
+*/

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Memori</title>
+    <!-- ... 기존의 CSS 및 JavaScript 라이브러리 추가 ... -->
+    <link rel="stylesheet" href="/list.css">
+
+</head>
+<body>
+
+<nav th:replace="~{main_up :: main_upFragment}"></nav>
+<nav th:replace="~{main_nav :: main_navFragment}"></nav>
+
+<div class="container">
+    <div id="filter-body" class="filter-container">
+        <div class="filter-group">
+            <h4>NVIDIA 칩셋</h4>
+            <div class="filter-options" id="nvidia-options">
+                <button class="brand-option" value="RTX 4090" onclick="filterProducts(this.value)">RTX 4090</button>
+                <button class="brand-option" value="RTX 4080" onclick="filterProducts(this.value)">RTX 4080</button>
+                <button class="brand-option" value="RTX 4070" onclick="filterProducts(this.value)">RTX 4070</button>
+                <button class="brand-option" value="RTX 3080" onclick="filterProducts(this.value)">RTX 4060</button>
+                <button class="brand-option" value="RTX 3070" onclick="filterProducts(this.value)">RTX 3070</button>
+                <button class="brand-option" value="RTX 3060" onclick="filterProducts(this.value)">RTX 3060</button>
+                <button class="brand-option" value="RTX 20" onclick="filterProducts(this.value)">RTX 20번대</button>
+
+            </div>
+        </div>
+        <div class="filter-group">
+            <h4>AMD 칩셋</h4>
+            <div class="filter-options" id="amd-options">
+                <button class="brand-option" value="RX 7900" onclick="filterProducts(this.value)">RX 7900</button>
+                <button class="brand-option" value="RX 6900" onclick="filterProducts(this.value)">RX 6900</button>
+                <button class="brand-option" value="RX 6800" onclick="filterProducts(this.value)">RX 6800</button>
+                <button class="brand-option" value="RX 6700" onclick="filterProducts(this.value)">RX 6700</button>
+                <button class="brand-option" value="RX 6600" onclick="filterProducts(this.value)">RX 6600</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sortBtn">
+        <button onclick="sortTableByPrice('asc')">낮은 가격순</button>
+        <button onclick="sortTableByPrice('desc')">높은 가격순</button>
+    </div>
+    <h1>GPU</h1>
+    <nav th:replace="~{products_list :: products_list}"></nav>
+
+</div>
+</body>
+</html>

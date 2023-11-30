@@ -1,0 +1,60 @@
+html {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    width: 100%;
+}
+
+.undersite {
+    text-align: center;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.undersite .form-control {
+    background-color: aliceblue;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 30px;
+    width: 260px;
+    margin: 0 auto;
+}
+
+.undersite .form-label {
+    font-size: 17px;
+    position: relative;
+    font-weight: 600;
+}
+
+.undersite .sign_up {
+    width: 150px;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    transition: 0.25s;
+    background-color: #212529;
+    color: white;
+    line-height: 45px;
+    font-weight: 600;
+}
+.undersite .sign_up:hover {
+    background-color: #bebebe;
+    color: black;
+}
+
+.blog-header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.blog-header-logo {
+    font-family: "Playfair Display", serif /*rtl:Amiri, Georgia, "Times New Roman", serif;;;; */;
+    font-size: 2.25rem;
+    text-decoration: none;
+}
+
+.blog-header-logo:hover {
+    text-decoration: underline;
+}
